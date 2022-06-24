@@ -1,0 +1,348 @@
+:root {
+  --space: 1.5rem;
+  --space-xs: calc(var(--space) / 3);
+  --space-sm: calc(var(--space) / 2);
+  --space-lg: calc(var(--space) * 2);
+  --space-xl: calc(var(--space) * 3);
+
+  --color-primary: lightgray;
+  --color-accent: whitesmoke;
+  --color-dark: black;
+  --color-mid: rgba(128, 128, 128, 0.575);
+  --color-light: white;
+  --color-highlight: dodgerblue;
+
+  --radius: 0.125rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 var(--space);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 1400px;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 0.7759rem + 5.5172vw, 4.5rem);
+  line-height: 1.4;
+}
+
+.title-underline {
+  line-height: 1.5;
+  font-size: clamp(1.5rem, 1.069rem + 1.3793vw, 2rem);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: italic;
+  margin-left: 2ch;
+  font-weight: 100;
+}
+
+p {
+  max-width: 70ch;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin: var(--space-sm);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: calc(var(--space-sm) * -1);
+  margin-bottom: calc(var(--space-lg) * -1);
+}
+
+main > * {
+  margin-bottom: var(--space-lg);
+  margin-left: var(--space);
+}
+
+content {
+  flex-basis: 0%;
+  min-width: 40%;
+  flex-grow: 99;
+  margin-right: var(--space-lg);
+  margin-bottom: var(--space);
+}
+
+content > * + * {
+  margin-top: var(--space);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-lg) 0;
+  padding: var(--space);
+  height: 40vh;
+  border-radius: 20px;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    var(--color-mid) 12px,
+    var(--color-accent) 24px
+  );
+  background-size: 100% 200%;
+  animation: slide 15s infinite linear forwards;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.header-text {
+  font-size: clamp(1.5rem, 1.2845rem + 0.6897vw, 1.75rem);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-style: oblique;
+}
+
+.sidebar {
+  top: var(--space-xl);
+  flex-grow: 1;
+  flex-basis: 350px;
+  align-self: start;
+  position: sticky;
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-container {
+  position: relative;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03),
+    0 16px 32px rgba(0, 0, 0, 0.02), 0 32px 64px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-header {
+  padding: var(--space-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: inherit;
+}
+
+.sidebar-btn-container {
+  padding: var(--space-sm);
+  display: flex;
+  justify-content: space-around;
+  border-top: inherit;
+}
+
+.cart-item-calc {
+  padding: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  border-top: inherit;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style: italic;
+
+}
+
+
+
+.sidebar-content {
+  padding: var(--space);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.sidebar-text {
+  text-align: center;
+  color: var(--color-mid);
+  }
+
+.cart-list {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  list-style: none;
+  padding: var(--space);
+  margin: var(--space-xs);
+  flex-grow: 1;
+  background-color: var(--color-light);
+  border: 1px solid var(--color-primary);
+  transition: 0.4s ease;
+}
+
+.cart-item:hover {
+  box-shadow: 12px 4px 15px 1px rgba(0, 0, 0, 0.26);
+}
+
+.cart-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.thumbnail-sm {
+  margin: var(--space-sm);
+  width: var(--space-xl);
+  height: var(--space-xl);
+}
+
+.thumbnail-sm-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.cart-right {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.cart-item-name {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: medium;
+  font-style: oblique;
+  margin-bottom: var(--space-xs);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--space);
+  margin: var(--space);
+}
+
+.item {
+  position: relative;
+  display: flex;
+  background-color: var(--color-accent);
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-md);
+  width: 100%;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 10px 7px 19px 1px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  color: white;
+  transform: translate(-50%, -50%);
+  background: #000;
+  opacity: 0.5;
+  pointer-events: none;
+  display: none;
+}
+
+
+.item:hover {
+  box-shadow: 10px 7px 15px 3px rgba(0, 0, 0, 0.25);
+}
+
+.item:active {
+  box-shadow: 10px 7px 10px 3px rgba(0, 0, 0, 0.6 );
+}
+
+
+
+.thumbnail {
+  width: 175px;
+  height: 175px;
+  margin-top: var(--space);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+  font-weight: lighter;
+  font-style: italic;
+  line-height: 1ch;
+}
+
+.info {
+  margin: var(--space);
+}
+
+.price-display {
+  margin-top: var(--space-sm);
+  width: 175px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+}
+
+
+.item-plus {
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.item-plus:hover {
+   color: rgb(18, 153, 18);
+   transform: scale(1.2, 1.2)
+}
+.item-minus {
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.item-minus:hover {
+  color: rgb(192, 49, 49);
+  transform: scale(1.2, 1.2);
+}
+
+.item__ {
+  list-style: none;
+}
